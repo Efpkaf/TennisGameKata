@@ -14,16 +14,15 @@ public class TennisGame {
 
         if (getPlayerTwo().score >= PointType.values().length && getPlayerOne().score >= PointType.values().length) {
             return "deuce";
-        }
-        if (getPlayerTwo().score() - getPlayerOne().score() >= 2) {
-            return "P2 won";
+        } else if (getPlayerTwo().score() - getPlayerOne().score() >= 2) {
+            return p2.name + " won";
         } else if (getPlayerTwo().score() - getPlayerOne().score() <= -2) {
-            return "P1 won";
+            return p1.name + " won";
         } else if (getPlayerTwo().score().equals(PointType.ADVANTAGE.ordinal())) {
-            return "P2 advantage";
+            return p2.name + " advantage";
         } else if (getPlayerOne().score().equals(PointType.ADVANTAGE.ordinal())) {
-            return "P1 advantage";
-        } else if (PointType.FORTY.getTranslated().equals(PointType.getByOrdinal(getPlayerOne().score())) && getPlayerTwo().score().equals(getPlayerOne().score())) {
+            return p1.name + " advantage";
+        } else if (getPlayerOne().score().equals(PointType.FORTY.ordinal()) && getPlayerTwo().score().equals(getPlayerOne().score())) {
             return "deuce";
         } else if (getPlayerTwo().score().equals(getPlayerOne().score())) {
             return PointType.getByOrdinal(getPlayerTwo().score()) + " all";
@@ -32,19 +31,20 @@ public class TennisGame {
         return PointType.getByOrdinal(getPlayerTwo().score()) + " - " + PointType.getByOrdinal(getPlayerTwo().score());
     }
 
+    public void setPlayerOne(String name) {
+        p1 = new Player(name);
+    }
+
+    public void setPlayerTwo(String name) {
+        p2 = new Player(name);
+    }
+
     public Player getPlayerOne() {
-        if (p1 == null) {
-            p1 = new Player();
-        }
         return p1;
     }
 
     public Player getPlayerTwo() {
-        if (p2 == null) {
-            p2 = new Player();
-        }
         return p2;
     }
-
 
 }

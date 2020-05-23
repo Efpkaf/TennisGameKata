@@ -10,6 +10,8 @@ class TennisGameKataTest {
 	@BeforeEach
 	public void init() {
 		game = TennisGame.newGame();
+		game.setPlayerOne("Wojsa");
+		game.setPlayerTwo("Adamczyk");
 	}
 
 	@Test
@@ -37,7 +39,7 @@ class TennisGameKataTest {
 	}
 
 	@Test
-	public void shouldGiveP2AdvantageWhenWinDeuce(){
+	public void shouldGiveAdamczykAdvantageWhenWinDeuce(){
 		game.getPlayerOne().win();
 		game.getPlayerOne().win();
 		game.getPlayerOne().win();
@@ -47,11 +49,11 @@ class TennisGameKataTest {
 		game.getPlayerTwo().win();
 		game.getPlayerTwo().win();
 
-		assertEquals("P2 advantage", game.getScore());
+		assertEquals("Adamczyk advantage", game.getScore());
 	}
 
 	@Test
-	public void shouldGiveP1AdvantageWhenWinDeuce(){
+	public void shouldGiveWojsaAdvantageWhenWinDeuce(){
 		game.getPlayerOne().win();
 		game.getPlayerOne().win();
 		game.getPlayerOne().win();
@@ -61,7 +63,7 @@ class TennisGameKataTest {
 		game.getPlayerTwo().win();
 		game.getPlayerTwo().win();
 
-		assertEquals("P1 advantage", game.getScore());
+		assertEquals("Wojsa advantage", game.getScore());
 	}
 
 	@Test
@@ -70,7 +72,7 @@ class TennisGameKataTest {
 		game.getPlayerOne().win();
 		game.getPlayerOne().win();
 
-		assertEquals("P1 won", game.getScore());
+		assertEquals("Wojsa won", game.getScore());
 	}
 
 	@Test
@@ -79,7 +81,7 @@ class TennisGameKataTest {
 		game.getPlayerTwo().win();
 		game.getPlayerTwo().win();
 
-		assertEquals("P2 won", game.getScore());
+		assertEquals("Adamczyk won", game.getScore());
 	}
 
 	@Test
