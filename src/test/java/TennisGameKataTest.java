@@ -15,7 +15,7 @@ class TennisGameKataTest {
 	@Test
 	public void shouldIncreasePointsForPlayer1(){
 		game.getPlayerOne().win();
-		assertEquals(PointType.FIFTEEN, game.getPlayerOne().score());
+		assertEquals(PointType.FIFTEEN.ordinal(), game.getPlayerOne().score().intValue());
 	}
 
 	@Test
@@ -80,6 +80,43 @@ class TennisGameKataTest {
 		game.getPlayerTwo().win();
 
 		assertEquals("P2 won", game.getScore());
+	}
+
+	@Test
+	public void shouldGiveFifteenAllStringForTheSameScore(){
+		game.getPlayerTwo().win();
+
+		game.getPlayerOne().win();
+
+		assertEquals(PointType.FIFTEEN.getTranslated() +" all", game.getScore());
+	}
+
+	@Test
+	public void shouldGiveThirtyAllStringForTheSameScore(){
+		game.getPlayerTwo().win();
+		game.getPlayerTwo().win();
+
+		game.getPlayerOne().win();
+		game.getPlayerOne().win();
+
+		assertEquals(PointType.THIRTY.getTranslated() + " all", game.getScore());
+	}
+
+	@Test
+	public void shouldGiveDeuceWhenEachPlayerHaveFivePoint(){
+		game.getPlayerOne().win();
+		game.getPlayerOne().win();
+		game.getPlayerOne().win();
+		game.getPlayerOne().win();
+		game.getPlayerOne().win();
+
+		game.getPlayerTwo().win();
+		game.getPlayerTwo().win();
+		game.getPlayerTwo().win();
+		game.getPlayerTwo().win();
+		game.getPlayerTwo().win();
+
+		assertEquals("deuce", game.getScore());
 	}
 
 }

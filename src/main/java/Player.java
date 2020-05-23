@@ -1,13 +1,12 @@
 public class Player {
+    int score;
+    String name;
 
-    private PointType pointType = PointType.ZERO;
-
-    public PointType score(){
-        return pointType;
+    public Integer score(){
+        return score;
     }
 
     public void win(){
-        int ordinal = pointType.ordinal();
-        pointType = PointType.values()[ordinal + 1];
+        score ++;
     }
 }

@@ -1,5 +1,5 @@
 public enum PointType {
-    ZERO("love"), FIFTEEN("15"), THIRTY("30"), FORTY("40"), ADVANTAGE("advantage");
+    ZERO("love"), FIFTEEN("fifteen"), THIRTY("thirty"), FORTY("forty"), ADVANTAGE("advantage");
 
     private String translated;
 
@@ -9,6 +9,10 @@ public enum PointType {
 
     PointType(String s) {
         translated = s;
+    }
+
+    public static String getByOrdinal(int i){
+        return values()[i].getTranslated();
     }
 }
 
