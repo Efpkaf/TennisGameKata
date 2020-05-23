@@ -41,8 +41,8 @@ class TennisGameKataTest {
 		game.getPlayerOne().win();
 		game.getPlayerOne().win();
 		game.getPlayerOne().win();
+		game.getPlayerOne().win();
 
-		game.getPlayerTwo().win();
 		game.getPlayerTwo().win();
 		game.getPlayerTwo().win();
 		game.getPlayerTwo().win();
