@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TennisGameKataTest {
 
-<<<<<<< HEAD
 	private TennisGame game;
 
 	@BeforeEach
@@ -14,12 +13,19 @@ class TennisGameKataTest {
 	}
 
 	@Test
-	public void shouldGive15WhenFirstPlayerWinFirstPoint() {
-		assertEquals("15 - love", game.getScore());
+	public void shouldGiveInitialValues() {
+		assertEquals("love - love", game.getScore());
 	}
 
-=======
+	@Test
+	public void shouldIncreasePointsForPlayer1(){
+		game.getPlayerOne().win();
+		assertEquals(PointType.FIFTEEN.getTranslated(), game.getPlayerOne().score());
+	}
 
-    
->>>>>>> 1b36d86cdd6a2009e5958fb962ce52278cd69fdd
+	@Test
+	public void shouldReceiveAllStringForTheSameScore(){
+		assertEquals("all love", game.getScore());
+	}
+
 }
