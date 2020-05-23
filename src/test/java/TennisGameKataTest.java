@@ -121,4 +121,40 @@ class TennisGameKataTest {
 		assertEquals("deuce", game.getScore());
 	}
 
+	@Test
+	public void shouldGiveAdvantageWhenEachPlayerHaveMoreThan5Points(){
+		game.getPlayerOne().win();
+		game.getPlayerOne().win();
+		game.getPlayerOne().win();
+		game.getPlayerOne().win();
+		game.getPlayerOne().win();
+
+		game.getPlayerTwo().win();
+		game.getPlayerTwo().win();
+		game.getPlayerTwo().win();
+		game.getPlayerTwo().win();
+		game.getPlayerTwo().win();
+		game.getPlayerTwo().win();
+
+		assertEquals("advantage", game.getScore());
+	}
+
+	@Test
+	public void shouldGiveWinP2WhenEachPlayerHaveMoreThan5Points(){
+		game.getPlayerOne().win();
+		game.getPlayerOne().win();
+		game.getPlayerOne().win();
+		game.getPlayerOne().win();
+		game.getPlayerOne().win();
+
+		game.getPlayerTwo().win();
+		game.getPlayerTwo().win();
+		game.getPlayerTwo().win();
+		game.getPlayerTwo().win();
+		game.getPlayerTwo().win();
+		game.getPlayerTwo().win();
+		game.getPlayerTwo().win();
+
+		assertEquals("Adamczyk won", game.getScore());
+	}
 }
