@@ -13,19 +13,55 @@ class TennisGameKataTest {
 	}
 
 	@Test
-	public void shouldGiveInitialValues() {
-		assertEquals("love - love", game.getScore());
-	}
-
-	@Test
 	public void shouldIncreasePointsForPlayer1(){
 		game.getPlayerOne().win();
-		assertEquals(PointType.FIFTEEN.getTranslated(), game.getPlayerOne().score());
+		assertEquals(PointType.FIFTEEN, game.getPlayerOne().score());
 	}
 
 	@Test
 	public void shouldReceiveAllStringForTheSameScore(){
-		assertEquals("all love", game.getScore());
+		assertEquals("love all", game.getScore());
+	}
+
+	@Test
+	public void shouldGiveDeuceWhenEachPlayerHaveThreePoint(){
+		game.getPlayerOne().win();
+		game.getPlayerOne().win();
+		game.getPlayerOne().win();
+
+		game.getPlayerTwo().win();
+		game.getPlayerTwo().win();
+		game.getPlayerTwo().win();
+
+		assertEquals("deuce", game.getScore());
+	}
+
+	@Test
+	public void shouldGiveP2AdvantageWhenWinDeuce(){
+		game.getPlayerOne().win();
+		game.getPlayerOne().win();
+		game.getPlayerOne().win();
+
+		game.getPlayerTwo().win();
+		game.getPlayerTwo().win();
+		game.getPlayerTwo().win();
+		game.getPlayerTwo().win();
+
+		assertEquals("P2 advantage", game.getScore());
+	}
+
+	@Test
+	public void shouldGiveP1AdvantageWhenWinDeuce(){
+		game.getPlayerOne().win();
+		game.getPlayerOne().win();
+		game.getPlayerOne().win();
+
+		game.getPlayerTwo().win();
+		game.getPlayerTwo().win();
+		game.getPlayerTwo().win();
+		game.getPlayerTwo().win();
+
+		assertEquals("P1 advantage", game.getScore());
 	}
 
 }
