@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TennisGameKataTest {
 
+<<<<<<< HEAD
 	private TennisGame game;
 
 	@BeforeEach
@@ -17,4 +18,8 @@ class TennisGameKataTest {
 		assertEquals("15 - love", game.getScore());
 	}
 
+=======
+
+    
+>>>>>>> 1b36d86cdd6a2009e5958fb962ce52278cd69fdd
 }
