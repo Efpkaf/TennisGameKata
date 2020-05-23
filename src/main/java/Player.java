@@ -2,8 +2,8 @@ public class Player {
 
     private PointType pointType = PointType.ZERO;
 
-    public String score(){
-        return pointType.getTranslated();
+    public PointType score(){
+        return pointType;
     }
 
     public void win(){

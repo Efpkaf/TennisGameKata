@@ -11,7 +11,14 @@ public class TennisGame {
 	}
 
 	public String getScore() {
- 		return getPlayerOne().score() + " - " + getPlayerTwo().score();
+
+		if(PointType.FORTY.equals(getPlayerOne().score()) && getPlayerTwo().score().equals(getPlayerOne().score())) {
+			return "deuce";
+		} else if(getPlayerTwo().score().equals(getPlayerOne().score())) {
+			return getPlayerTwo().score().getTranslated() + " all";
+		}
+
+ 		return getPlayerOne().score().getTranslated() + " - " + getPlayerTwo().score().getTranslated();
 	}
 
 	public Player getPlayerOne(){
