@@ -1,5 +1,5 @@
 public enum PointType {
-    ZERO("love"), FIFTEEN("15"), THIRTY("30"), FORTY("40");
+    ZERO("love"), FIFTEEN("15"), THIRTY("30"), FORTY("40"), ADVANTAGE("advantage");
 
     private String translated;
 

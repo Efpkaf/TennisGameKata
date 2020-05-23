@@ -1,39 +1,42 @@
 public class TennisGame {
 
-	private Player p1;
-	private Player p2;
+    private Player p1;
+    private Player p2;
 
-	private TennisGame(){
-	}
+    private TennisGame() {
+    }
 
-	public static TennisGame newGame() {
-		return new TennisGame();
-	}
+    public static TennisGame newGame() {
+        return new TennisGame();
+    }
 
-	public String getScore() {
+    public String getScore() {
+        if (getPlayerTwo().score().equals(PointType.ADVANTAGE)) {
+            return "P2 advantage";
+        } else if (getPlayerOne().score().equals(PointType.ADVANTAGE)) {
+            return "P1 advantage";
+        } else if (PointType.FORTY.equals(getPlayerOne().score()) && getPlayerTwo().score().equals(getPlayerOne().score())) {
+            return "deuce";
+        } else if (getPlayerTwo().score().equals(getPlayerOne().score())) {
+            return getPlayerTwo().score().getTranslated() + " all";
+        }
 
-		if(PointType.FORTY.equals(getPlayerOne().score()) && getPlayerTwo().score().equals(getPlayerOne().score())) {
-			return "deuce";
-		} else if(getPlayerTwo().score().equals(getPlayerOne().score())) {
-			return getPlayerTwo().score().getTranslated() + " all";
-		}
+        return getPlayerOne().score().getTranslated() + " - " + getPlayerTwo().score().getTranslated();
+    }
 
- 		return getPlayerOne().score().getTranslated() + " - " + getPlayerTwo().score().getTranslated();
-	}
+    public Player getPlayerOne() {
+        if (p1 == null) {
+            p1 = new Player();
+        }
+        return p1;
+    }
 
-	public Player getPlayerOne(){
-		if(p1 == null) {
-			p1 = new Player();
-		}
-		return p1;
-	}
-
-	public Player getPlayerTwo(){
-		if(p2 == null) {
-			p2 = new Player();
-		}
-		return p2;
-	}
+    public Player getPlayerTwo() {
+        if (p2 == null) {
+            p2 = new Player();
+        }
+        return p2;
+    }
 
 
 }

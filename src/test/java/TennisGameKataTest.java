@@ -64,4 +64,22 @@ class TennisGameKataTest {
 		assertEquals("P1 advantage", game.getScore());
 	}
 
+	@Test
+	public void shouldPlayer1Win(){
+		game.getPlayerOne().win();
+		game.getPlayerOne().win();
+		game.getPlayerOne().win();
+
+		assertEquals("P1 won", game.getScore());
+	}
+
+	@Test
+	public void shouldPlayer2Win(){
+		game.getPlayerTwo().win();
+		game.getPlayerTwo().win();
+		game.getPlayerTwo().win();
+
+		assertEquals("P2 won", game.getScore());
+	}
+
 }
